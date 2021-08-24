@@ -31,14 +31,14 @@ jobs:
     needs: prepare-release
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://ritclizup/rit-python3-builder
+      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
           git config core.fileMode false
           git status
           chmod +x ./.github/build.sh
-          ./.github/build.sh ritclizup/rit-python3-builder
+          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
           git status
       - run: |
           mkdir ../build_win
@@ -58,14 +58,14 @@ jobs:
           name: build_win
           path: ../build_mac
       - run: cd ../build_mac
-      - uses: docker://ritclizup/rit-python3-builder
+      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
           git config core.fileMode false
           git status
           chmod +x ./.github/build.sh
-          ./.github/build.sh ritclizup/rit-python3-builder
+          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
           git status
       - uses: actions/upload-artifact@master
         with:
@@ -93,14 +93,14 @@ jobs:
           ./.github/build.sh ritclizup/rit-go-builder
           git status
 
-      - uses: docker://ritclizup/rit-python3-builder
+      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
           git config core.fileMode false
           git status
           chmod +x ./.github/build.sh
-          ./.github/build.sh ritclizup/rit-python3-builder
+          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
           git status
       - uses: actions/upload-artifact@master
         with:
