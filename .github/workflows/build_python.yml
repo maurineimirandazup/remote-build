@@ -83,7 +83,7 @@ jobs:
           path: ../build_linux
       - run: cd ../build_linux
 
-      - uses: docker://ritclizup/rit-go-builder
+      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
       - id: build_formulas_go
         name: Build And Compress Formulas GO
         run: |
