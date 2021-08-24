@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "Release ${{ steps.check_release.outputs.release_name }}"
 
-  build_windows:
+  build-windows:
     runs-on: windows-2019
     needs: prepare-release
     steps:
@@ -50,7 +50,7 @@ jobs:
 
   build-mac:
     runs-on: macos-latest
-    needs: build_windows
+    needs: build-windows
     steps:
       - run: mkdir ../build_mac
       - uses: actions/download-artifact@master
