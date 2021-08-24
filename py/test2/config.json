@@ -1,5 +1,5 @@
 {
-  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "dockerImageBuilder": "maurineimirandazup/python3-pyinstaller-builder",
   "inputs": [
     {
       "cache": {
