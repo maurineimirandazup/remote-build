@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "Release ${{ steps.check_release.outputs.release_name }}"
 
-  build-windows:
+  build_windows:
     runs-on: windows-2019
     needs: prepare-release
     steps:
