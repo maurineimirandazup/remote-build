@@ -31,7 +31,6 @@ jobs:
     needs: prepare-release
     steps:
       - uses: actions/checkout@v2
-      - run: ls
       - uses: docker://ritclizup/rit-go-builder
       - id: build_formulas_go
         name: Build And Compress Formulas GO
@@ -39,7 +38,7 @@ jobs:
           git config core.fileMode false  
           git status
           chmod +x ./.github/build.sh
-          ./.github/build.sh ritclizup/rit-go-builder
+          bash ./.github/build.sh ritclizup/rit-go-builder
           git status
 
       - uses: docker://maurineimirandazup/python3-pyinstaller-builder
