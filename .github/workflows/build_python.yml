@@ -26,6 +26,41 @@ jobs:
         run: |
           echo "Release ${{ steps.check_release.outputs.release_name }}"
 
+  build-linux:
+    runs-on: ubuntu-latest
+    needs: prepare-release
+    steps:
+      - run: mkdir ../build_linux
+      - uses: actions/download-artifact@master
+        with:
+          name: build_mac
+          path: ../build_linux
+      - run: cd ../build_linux
+
+      - uses: docker://ritclizup/rit-go-builder
+      - id: build_formulas_go
+        name: Build And Compress Formulas GO
+        run: |
+          git config core.fileMode false
+          git status
+          chmod +x ./.github/build.sh
+          ./.github/build.sh ritclizup/rit-go-builder
+          git status
+
+      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
+      - id: build_formulas_python
+        name: Build And Compress Formulas Python
+        run: |
+          git config core.fileMode false
+          git status
+          chmod +x ./.github/build.sh
+          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
+          git status
+      - uses: actions/upload-artifact@master
+        with:
+          name: build_linux
+          path: ../build_linux
+
   build-windows:
     runs-on: windows-2019
     needs: prepare-release
@@ -71,41 +106,6 @@ jobs:
         with:
           name: build_mac
           path: ../build_mac
-
-  build-linux:
-    runs-on: ubuntu-latest
-    needs: [prepare-release, build-mac]
-    steps:
-      - run: mkdir ../build_linux
-      - uses: actions/download-artifact@master
-        with:
-          name: build_mac
-          path: ../build_linux
-      - run: cd ../build_linux
-
-      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
-      - id: build_formulas_go
-        name: Build And Compress Formulas GO
-        run: |
-          git config core.fileMode false
-          git status
-          chmod +x ./.github/build.sh
-          ./.github/build.sh ritclizup/rit-go-builder
-          git status
-
-      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
-      - id: build_formulas_python
-        name: Build And Compress Formulas Python
-        run: |
-          git config core.fileMode false
-          git status
-          chmod +x ./.github/build.sh
-          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
-          git status
-      - uses: actions/upload-artifact@master
-        with:
-          name: build_linux
-          path: ../build_linux
 
   generate-release:
     runs-on: ubuntu-latest
