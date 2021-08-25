@@ -10,6 +10,7 @@ checkBuild() {
 
   if [[ $autoBuildOnRelease == true && \"$NAMEDOCKERIMAGEBUILDER\" == $dockerImageBuilder ]]; then
     echo "Folders: $folder"
+    chmod -R 777 .
     echo "Building $autoBuildOnRelease.... $file"
     if [[ -f "$folder/bin" ]] ; then
       echo "Remove old bin folder ..."
