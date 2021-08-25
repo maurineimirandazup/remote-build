@@ -57,28 +57,6 @@ jobs:
           name: build_linux
           path: ../build_linux
 
-  build-windows:
-    runs-on: windows-2019
-    needs: prepare-release
-    steps:
-      - uses: actions/checkout@v2
-      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
-      - id: build_formulas_python
-        name: Build And Compress Formulas Python
-        run: |
-          git config core.fileMode false
-          git status
-          chmod +x ./.github/build.sh
-          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
-          git status
-      - run: |
-          mkdir ../build_win
-          copy * ../build_win /E /H
-      - uses: actions/upload-artifact@master
-        with:
-          name: build_win
-          path: ../build_win
-
   build-mac:
     runs-on: macos-latest
     needs: build-windows
