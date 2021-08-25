@@ -38,7 +38,7 @@ jobs:
           git config core.fileMode false  
           git status
           chmod +x ./.github/build.sh
-          bash ./.github/build.sh ritclizup/rit-go-builder
+          sudo ./.github/build.sh ritclizup/rit-go-builder
           git status
 
       - uses: docker://maurineimirandazup/python3-pyinstaller-builder
