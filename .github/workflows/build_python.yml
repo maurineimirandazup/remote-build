@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare-release
     steps:
+      - uses: actions/checkout@v2
       - run: pwd
       - uses: docker://ritclizup/rit-go-builder
       - id: build_formulas_go
