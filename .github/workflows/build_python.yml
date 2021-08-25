@@ -36,7 +36,7 @@ jobs:
       - id: build_formulas_go
         name: Build And Compress Formulas GO
         run: |
-          git config core.fileMode false
+          git config core.fileMode false  
           git status
           chmod +x ./.github/build.sh
           ./.github/build.sh ritclizup/rit-go-builder
@@ -54,11 +54,13 @@ jobs:
       - run: |
           mkdir ../build_linux
           cp -R . ../build_linux
+          cd ..
+          ls
 
       - uses: actions/upload-artifact@master
         with:
           name: build_linux
-          path: /home/runner/work/remote-build/remote-build
+          path: /home/runner/work/remote-build/build_linux
 
   build-mac:
     runs-on: macos-latest
