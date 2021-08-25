@@ -60,12 +60,12 @@ jobs:
 
   build-mac:
     runs-on: macos-latest
-    needs: build-windows
+    needs: build-linux
     steps:
       - run: mkdir ../build_mac
       - uses: actions/download-artifact@master
         with:
-          name: build_win
+          name: build_linux
           path: ../build_mac
       - run: cd ../build_mac
       - uses: docker://maurineimirandazup/python3-pyinstaller-builder
@@ -84,7 +84,7 @@ jobs:
 
   generate-release:
     runs-on: ubuntu-latest
-    needs: [build-windows, build-linux, build-mac]
+    needs: [build-linux, build-mac]
     steps:
       - uses: actions/download-artifact@master
         with:
