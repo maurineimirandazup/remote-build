@@ -22,6 +22,7 @@ checkBuild() {
         echo "Build with Makefile ...."
         make -C $folder > /dev/null
     fi
+    pwd
     ls "$folder/bin"
     echo "Compress binarys ..."
     upx -9 "$folder/bin/darwin/main"
