@@ -31,11 +31,6 @@ jobs:
     needs: prepare-release
     steps:
       - run: mkdir ../build_linux
-      - uses: actions/download-artifact@master
-        with:
-          name: build_mac
-          path: ../build_linux
-      - run: cd ../build_linux
 
       - uses: docker://ritclizup/rit-go-builder
       - id: build_formulas_go
@@ -56,6 +51,9 @@ jobs:
           chmod +x ./.github/build.sh
           ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
           git status
+      - run: |
+          mkdir ../build_linux
+          cp -R . ../build_linux
       - uses: actions/upload-artifact@master
         with:
           name: build_linux
