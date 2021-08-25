@@ -9,7 +9,7 @@ checkBuild() {
   dockerImageBuilder=$(cat "$file" | jq '.dockerImageBuilder')
 
   if [[ $autoBuildOnRelease == true && \"$NAMEDOCKERIMAGEBUILDER\" == $dockerImageBuilder ]]; then
-    echo "Folder: $folder"
+    echo "Folders: $folder"
     echo "Building $autoBuildOnRelease.... $file"
     if [[ -f "$folder/bin" ]] ; then
       echo "Remove old bin folder ..."
