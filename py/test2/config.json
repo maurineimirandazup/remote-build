@@ -1,5 +1,6 @@
 {
   "dockerImageBuilder": "maurineimirandazup/python3-pyinstaller-builder",
+  "autoBuildOnRelease": true,
   "inputs": [
     {
       "cache": {
