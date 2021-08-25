@@ -37,9 +37,8 @@ jobs:
         run: |
           git config core.fileMode false  
           git status
-          ls -la ./.github
           chmod +x ./.github/build.sh
-          sudo bash ./.github/build.sh ritclizup/rit-go-builder
+          ./.github/build.sh ritclizup/rit-go-builder
           git status
 
       - run: |
