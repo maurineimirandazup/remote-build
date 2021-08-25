@@ -9,7 +9,6 @@ checkBuild() {
   dockerImageBuilder=$(cat "$file" | jq '.dockerImageBuilder')
 
   if [[ $autoBuildOnRelease == true && \"$NAMEDOCKERIMAGEBUILDER\" == $dockerImageBuilder ]]; then
-    echo "Folders: $folder"
     chmod -R 777 .
     echo "Building $autoBuildOnRelease.... $file"
     if [[ -f "$folder/bin" ]] ; then
