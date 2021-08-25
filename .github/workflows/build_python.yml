@@ -38,15 +38,14 @@ jobs:
           git config core.fileMode false  
           git status
           chmod +x ./.github/build.sh
-          cd ../..
+          pwd
+          cd ../
           ./.github/build.sh ritclizup/rit-go-builder
           git status
 
       - run: |
           mkdir ../build_linux
           cp -R . ../build_linux
-          cd ..
-          ls
 
       - uses: actions/upload-artifact@master
         with:
