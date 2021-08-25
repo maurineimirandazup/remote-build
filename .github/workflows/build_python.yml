@@ -58,7 +58,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: build_linux
-          path: ../build_linux
+          path: /home/runner/work/remote-build/remote-build
 
   build-mac:
     runs-on: macos-latest
