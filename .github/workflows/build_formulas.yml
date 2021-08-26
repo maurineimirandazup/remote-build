@@ -71,7 +71,6 @@ jobs:
     steps:
       #Build formulas python
       - uses: actions/checkout@v2
-      - uses: docker://maurineimirandazup/python3-pyinstaller-builder
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
