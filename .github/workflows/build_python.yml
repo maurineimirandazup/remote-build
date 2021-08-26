@@ -40,7 +40,7 @@ jobs:
           git config core.fileMode false  
           git status
           chmod +x ./.github/build-go.sh
-          ./.github/build.sh ritclizup/rit-go-builder
+          ./.github/build-go.sh ritclizup/rit-go-builder
           git status
 
       #Build formulas python
@@ -51,7 +51,7 @@ jobs:
           git config core.fileMode false
           git status
           chmod +x ./.github/build-py.sh
-          ./.github/build.sh maurineimirandazup/python3-pyinstaller-builder
+          ./.github/build-py.sh maurineimirandazup/python3-pyinstaller-builder
           git status
 
       #Copy files do Artifact Folder
