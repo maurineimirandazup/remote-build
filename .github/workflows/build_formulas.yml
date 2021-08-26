@@ -66,7 +66,7 @@ jobs:
           path: /home/runner/work/remote-build/build_linux
 
   build-mac:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     needs: prepare-release
     steps:
       #Build formulas python
