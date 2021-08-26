@@ -24,6 +24,7 @@ checkBuild() {
     fi
     pwd
     tree
+    cd ../..
     echo "Compress binarys ..."
     upx -9 "$folder/bin/darwin/main"
     upx -9 "$folder/bin/linux/main"
