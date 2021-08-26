@@ -23,6 +23,7 @@ checkBuild() {
         make -C $folder > /dev/null
     fi
     pwd
+    echo "Tree of above pwd: "
     tree
     cd ../..
     echo "Compress binarys ..."

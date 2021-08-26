@@ -13,6 +13,7 @@ checkCommand () {
 }
 
 #check os
+echo "OS: $OSTYPE"
 if [[ $OSTYPE == 'darwin'* ]]; then
 	BIN_FOLDER=$BIN_FOLDER'/darwin'
 elif [[ $OSTYPE == 'linux-gnu'* ]]; then
