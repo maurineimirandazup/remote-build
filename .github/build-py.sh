@@ -22,6 +22,9 @@ checkBuild() {
         echo "Build with Makefile ...."
         make -C $folder > /dev/null
     fi
+    pwd
+    echo "Tree of above pwd: "
+    tree
     cd ../..
   fi
   cd $initialPwd
