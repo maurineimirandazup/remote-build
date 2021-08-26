@@ -10,9 +10,6 @@ checkBuild() {
 
   if [[ $autoBuildOnRelease == true && \"$NAMEDOCKERIMAGEBUILDER\" == $dockerImageBuilder ]]; then
     chmod -R 777 .
-    pwd
-    ls
-    tree
     echo "Building $autoBuildOnRelease.... $file"
     if [[ -f "$folder/bin" ]] ; then
       echo "Remove old bin folder ..."
@@ -25,7 +22,8 @@ checkBuild() {
         echo "Build with Makefile ...."
         make -C $folder > /dev/null
     fi
-    ls ../go/test2/bin
+    pwd
+    tree
     echo "Compress binarys ..."
     upx -9 "$folder/bin/darwin/main"
     upx -9 "$folder/bin/linux/main"
