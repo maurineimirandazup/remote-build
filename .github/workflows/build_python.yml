@@ -38,7 +38,6 @@ jobs:
           git config core.fileMode false  
           git status
           chmod +x ./.github/build.sh
-          pwd
           ./.github/build.sh ritclizup/rit-go-builder
           git status
 
