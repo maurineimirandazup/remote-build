@@ -13,7 +13,7 @@ checkCommand () {
 }
 
 #check os
-if [[ $(uname) == 'Darwin' ]]; then
+if [ $(uname) == 'Darwin' ]; then
 	BIN_FOLDER=$BIN_FOLDER'/darwin'
 else
 	BIN_FOLDER=$BIN_FOLDER/'linux'
