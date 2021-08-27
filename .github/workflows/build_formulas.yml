@@ -85,7 +85,7 @@ jobs:
       - run: |
           pwd
           mkdir ../build_mac
-          cp -vR . ../build_mac
+          cp -vR * ../build_mac
 
       #Upload Artifacts
       - uses: actions/upload-artifact@master
