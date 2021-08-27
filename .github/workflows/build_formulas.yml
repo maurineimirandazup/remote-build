@@ -86,6 +86,8 @@ jobs:
           pwd
           mkdir ../build_mac
           cp -vR * ../build_mac
+
+      - run: |
           ls /Users/runner/work/remote-build/build-mac
           ls /Users/runner/work/remote-build/remote-build/build-mac
 
