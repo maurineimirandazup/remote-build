@@ -88,13 +88,13 @@ jobs:
           cp -vR * ../build_mac
 
       - run: |
-          ls /Users/runner/work/remote-build/remote-build/build_mac
+          ls /Users/runner/work/remote-build/build_mac
       #
       #Upload Artifacts
       - uses: actions/upload-artifact@master
         with:
           name: build_mac
-          path: /Users/runner/work/remote-build/remote-build/build_mac
+          path: /Users/runner/work/remote-build/build_mac
 
 
 
