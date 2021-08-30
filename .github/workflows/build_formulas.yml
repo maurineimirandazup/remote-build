@@ -116,8 +116,8 @@ jobs:
       #Upload Artifacts
       - uses: actions/upload-artifact@master
         with:
-          name: build_mac
-          path: /Users/runner/work/remote-build/build_win
+          name: build_win
+          path: D:\a\remote-build\build_win
 
   generate-release:
     runs-on: ubuntu-latest
