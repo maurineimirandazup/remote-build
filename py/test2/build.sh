@@ -15,7 +15,7 @@ checkCommand () {
 #check os
 if [ "$(uname)" = 'Darwin' ]; then
 	BIN_FOLDER=$BIN_FOLDER'/darwin'
-elif [ "$(uname)" == 'Linux' ]; then
+elif [ "$(uname)" = 'Linux' ]; then
 	BIN_FOLDER=$BIN_FOLDER/'linux'
 else
 	BIN_FOLDER=$BIN_FOLDER/'windows'
