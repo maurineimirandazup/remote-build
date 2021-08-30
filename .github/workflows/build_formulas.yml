@@ -92,7 +92,32 @@ jobs:
           name: build_mac
           path: /Users/runner/work/remote-build/build_mac
 
+  build-windows:
+    runs-on: windows-latest
+    needs: prepare-release
+    steps:
+      #Build formulas python
+      - uses: actions/checkout@v2
+      - id: build_formulas_python
+        name: Build And Compress Formulas Python
+        run: |
+          git config core.fileMode false
+          git status
+          chmod +x ./.github/build-py.sh
+          bash ./.github/build-py.sh maurineimirandazup/python3-pyinstaller-builder
+          git status
 
+      #Copy files do Artifact Folder
+      - run: |
+          mkdir ../build_win
+          cp -R * ../build_win
+          ls -R ..
+
+      #Upload Artifacts
+      - uses: actions/upload-artifact@master
+        with:
+          name: build_mac
+          path: /Users/runner/work/remote-build/build_win
 
   generate-release:
     runs-on: ubuntu-latest
