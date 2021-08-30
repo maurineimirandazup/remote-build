@@ -83,13 +83,9 @@ jobs:
 
       #Copy files do Artifact Folder
       - run: |
-          pwd
           mkdir ../build_mac
-          cp -vR * ../build_mac
+          cp -R * ../build_mac
 
-      - run: |
-          ls /Users/runner/work/remote-build/build_mac
-      #
       #Upload Artifacts
       - uses: actions/upload-artifact@master
         with:
