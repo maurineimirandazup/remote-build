@@ -15,8 +15,10 @@ checkCommand () {
 #check os
 if [ "$(uname)" = 'Darwin' ]; then
 	BIN_FOLDER=$BIN_FOLDER'/darwin'
-else
+elif [ "$(uname)" == 'Linux' ]; then
 	BIN_FOLDER=$BIN_FOLDER/'linux'
+else
+	BIN_FOLDER=$BIN_FOLDER/'windows'
 fi
 
 #python-build:
