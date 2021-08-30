@@ -137,8 +137,7 @@ jobs:
           name: build_win
           path: ./
 
-      - run: |
-          ls -R ./
+      - uses: actions/checkout@v2
 
       - id: clean_up_unnecessary_files
         name: Clean up unnecessary files
