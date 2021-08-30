@@ -121,13 +121,25 @@ jobs:
 
   generate-release:
     runs-on: ubuntu-latest
-    needs: build-linux
-    if: ${{ false }}
+    needs: [build-linux, build-mac, build-windows]
+    # if: ${{ false }}
     steps:
       - uses: actions/download-artifact@master
         with:
           name: build_linux
-          path: ./  
+          path: ./
+      - uses: actions/download-artifact@master
+        with:
+          name: build_mac
+          path: ./
+      - uses: actions/download-artifact@master
+        with:
+          name: build_win
+          path: ./
+
+      - run: |
+          ls -R ./
+
       - id: clean_up_unnecessary_files
         name: Clean up unnecessary files
         run: |
