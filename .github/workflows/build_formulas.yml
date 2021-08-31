@@ -134,9 +134,9 @@ jobs:
 
       - name: move files
         run: |
-          cp -R ./build_linux/* ./
-          cp -R ./build_mac/* ./
-          cp -R ./build_win/* ./
+          cp -Rn ./build_linux/* ./
+          cp -Rn ./build_mac/* ./
+          cp -Rn ./build_win/* ./
 
       - id: clean_up_unnecessary_files
         name: Clean up unnecessary files
@@ -145,7 +145,7 @@ jobs:
           rm -rf ./.circleci ./.github
           rm -rf ./build_linux
           rm -rf ./build_mac
-          rm -rf ./build_linux
+          rm -rf ./build_win
           touch release_${{ needs.prepare-release.steps.check_release.outputs.release_name }}
           git status
 
@@ -153,7 +153,7 @@ jobs:
         name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Auto Build
+          commit_message: Auto Build 1
 
       - id: check_status
         name: Check Status
