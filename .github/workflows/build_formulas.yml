@@ -148,18 +148,12 @@ jobs:
 
       - id: commit_changes
         name: Commit Changes
-        uses: EndBug/add-and-commit@v5
+        uses: EndBug/add-and-commit@v7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          push: false
           signoff: true
           message: "Auto Build Formulas"
-
-      - uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
 
       - id: check_status
         name: Check Status
