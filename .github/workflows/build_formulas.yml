@@ -14,7 +14,7 @@ jobs:
       hash_autobuild: ${{ steps.check_status.outputs.hash_autobuild }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - id: check_release
         name: Check Release Name
         env:
@@ -33,7 +33,7 @@ jobs:
     steps:
 
       #Checkout files, build golang formulas
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: docker://ritclizup/rit-go-builder
       - id: build_formulas_go
         name: Build And Compress Formulas GO
@@ -71,7 +71,7 @@ jobs:
     needs: prepare-release
     steps:
       #Build formulas python
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
@@ -97,7 +97,7 @@ jobs:
     needs: prepare-release
     steps:
       #Build formulas python
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
@@ -175,4 +175,4 @@ jobs:
           prerelease: false
           commitish: ${{ needs.prepare-release.steps.check_status.outputs.hash_autobuild }}
 
-# test2
+# test3
