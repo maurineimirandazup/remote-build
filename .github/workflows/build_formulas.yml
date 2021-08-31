@@ -148,10 +148,9 @@ jobs:
 
       - id: commit_changes
         name: Commit Changes
-        run: |
-          git add .
-          git commit -m "Test" -s
-          git push origin ${GITHUB_REF#refs/heads/}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto Build
 
       - id: check_status
         name: Check Status
