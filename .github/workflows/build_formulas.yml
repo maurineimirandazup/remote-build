@@ -111,7 +111,6 @@ jobs:
       - run: |
           mkdir ../build_win
           cp -R * ../build_win
-          ls -R ..
 
       #Upload Artifacts
       - uses: actions/upload-artifact@master
@@ -123,7 +122,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-linux, build-mac, build-windows]
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/download-artifact@master
         with:
           name: build_linux
@@ -138,7 +136,7 @@ jobs:
           path: ./
 
       - run: |
-          pwd
+          git remote -v
 
       - id: clean_up_unnecessary_files
         name: Clean up unnecessary files
