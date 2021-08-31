@@ -134,9 +134,9 @@ jobs:
 
       - name: move files
         run: |
-          mv ./build_linux/* ./
-          mv ./build_mac/* ./
-          mv ./build_win/* ./
+          cp -R ./build_linux/* ./
+          cp -R ./build_mac/* ./
+          cp -R ./build_win/* ./
 
       - id: clean_up_unnecessary_files
         name: Clean up unnecessary files
