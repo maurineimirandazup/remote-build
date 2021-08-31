@@ -146,6 +146,11 @@ jobs:
           touch release_${{ needs.prepare-release.steps.check_release.outputs.release_name }}
           git status
 
+      - id: checkout files
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
       - id: commit_changes
         name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
