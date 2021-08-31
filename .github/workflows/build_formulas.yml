@@ -150,7 +150,8 @@ jobs:
         name: Commit Changes
         uses: EndBug/add-and-commit@v7
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          committer_name: maurinei.miranda@zup.com.br
+          committer_email : maurinei.miranda@zup.com.br
           signoff: true
           message: "Auto Build Formulas"
 
