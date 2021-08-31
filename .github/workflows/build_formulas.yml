@@ -122,10 +122,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-linux, build-mac, build-windows]
     steps:
-
-      - run: |
-          git remote -v
-
       - id: checkout_files
         name: checkout files
         uses: actions/checkout@v2
