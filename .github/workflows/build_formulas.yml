@@ -152,6 +152,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          push: false
           signoff: true
           message: "Auto Build Formulas"
 
