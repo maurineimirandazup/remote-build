@@ -148,7 +148,7 @@ jobs:
 
       - id: commit_changes
         name: Commit Changes
-      - run: |
+        run: |
           git add .
           git commit -m "Test" -s
           git push origin ${GITHUB_REF#refs/heads/}
