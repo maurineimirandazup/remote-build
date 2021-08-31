@@ -15,8 +15,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - id: check_release
         name: Check Release Name
         env:
@@ -36,8 +34,6 @@ jobs:
 
       #Checkout files, build golang formulas
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - uses: docker://ritclizup/rit-go-builder
       - id: build_formulas_go
         name: Build And Compress Formulas GO
@@ -76,8 +72,6 @@ jobs:
     steps:
       #Build formulas python
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
@@ -104,8 +98,6 @@ jobs:
     steps:
       #Build formulas python
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - id: build_formulas_python
         name: Build And Compress Formulas Python
         run: |
@@ -131,6 +123,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-linux, build-mac, build-windows]
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/download-artifact@master
         with:
           name: build_linux
