@@ -130,24 +130,22 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: build_linux
           path: ./
 
-      - uses: actions/download-artifact@v2
-        with:
-          name: build_mac
-          path: ./
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: build_win
-          path: ./
+      - name: move files
+        run: |
+          mv ./build_linux/* ./
+          mv ./build_mac/* ./
+          mv ./build_win/* ./
 
       - id: clean_up_unnecessary_files
         name: Clean up unnecessary files
         run: |
           find ./ -maxdepth 1 -type f ! -name README.md ! -name LICENSE -delete
           rm -rf ./.circleci ./.github
+          rm -rf ./build_linux
+          rm -rf ./build_mac
+          rm -rf ./build_linux
           touch release_${{ needs.prepare-release.steps.check_release.outputs.release_name }}
           git status
 
