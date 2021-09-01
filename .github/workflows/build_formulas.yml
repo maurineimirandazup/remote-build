@@ -169,10 +169,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ needs.prepare-release.steps.check_release.outputs.release_name }}
-          release_name: Release ${{ needs.prepare-release.steps.check_release.outputs.release_name }}
+          tag_name: ${{ needs.prepare-release.outputs.release_name }}
+          release_name: Release ${{ needs.prepare-release.outputs.release_name }}
           draft: false
           prerelease: false
-          commitish: ${{ needs.prepare-release.steps.check_status.outputs.hash_autobuild }}
+          commitish: ${{ needs.prepare-release.outputs.hash_autobuild }}
 
 # test3
