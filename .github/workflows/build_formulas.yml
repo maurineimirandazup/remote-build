@@ -174,5 +174,3 @@ jobs:
           draft: false
           prerelease: false
           commitish: ${{ needs.prepare-release.outputs.hash_autobuild }}
-
-# test3
