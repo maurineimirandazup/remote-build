@@ -146,7 +146,7 @@ jobs:
           rm -rf ./build_linux
           rm -rf ./build_mac
           rm -rf ./build_win
-          touch release_${{ needs.prepare-release.steps.check_release.outputs.release_name }}
+          touch release_${{ needs.prepare-release.outputs.release_name }}
           git status
 
       - id: commit_changes
